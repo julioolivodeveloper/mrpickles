@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green-dark: #1e3a1e;
+  --green-mid: #2d5a27;
+  --green-light: #4a7c3f;
+  --yellow: #f0c040;
+  --cream: #faf7ee;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+html { scroll-behavior: smooth; }
+body { font-family: system-ui, sans-serif; background: #faf7ee; color: #1a1a1a; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0ead5; }
+::-webkit-scrollbar-thumb { background: #4a7c3f; border-radius: 3px; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.menu-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,58,30,0.15); }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+.fade-up { animation: fadeUp 0.5s ease forwards; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.float { animation: float 3s ease-in-out infinite; }
