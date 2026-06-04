@@ -21,52 +21,51 @@ type MenuItem = {
   name: string
   desc: string
   price: number
-  icon: string
   toasted?: boolean
   veg?: boolean
 }
 
 const SANDWICHES: MenuItem[] = [
-  { id:1,  name:'Meatball',        desc:'Meatballs, marinara sauce and pepper jack cheese',                                               price:16.5, icon:'🍖', toasted:true },
-  { id:2,  name:'Vegi',            desc:'Choice of cheese, avocado, sprouts, cucumber',                                                   price:13.5, icon:'🥑', veg:true },
-  { id:3,  name:'Tony Soprano',    desc:'Salami, ham, mortadella, provolone cheese & Italian dressing',                                   price:16.5, icon:'🇮🇹' },
-  { id:4,  name:'Tom Tom',         desc:'Turkey, bacon and swiss cheese',                                                                  price:16.5, icon:'🦃' },
-  { id:5,  name:'Diyana',          desc:'Pastrami, swiss and thousand island on rye',                                                      price:16,   icon:'🥩', toasted:true },
-  { id:6,  name:'House Combo',     desc:'Turkey, salami, ham and american cheese',                                                         price:16.5, icon:'🏠' },
-  { id:7,  name:'Dog House',       desc:'Pastrami, bacon and swiss cheese',                                                                price:16.5, icon:'🐶' },
-  { id:8,  name:'Porky Pig',       desc:'Ham, bacon and american cheese',                                                                  price:16.5, icon:'🐷' },
-  { id:9,  name:"Speedy's Special",desc:'Chicken breast marinated in honey mustard, BBQ with bacon & cheddar cheese',                    price:17,   icon:'⚡' },
-  { id:10, name:'The Bear',        desc:'Roast beef with BBQ sauce and cheddar cheese',                                                    price:16,   icon:'🐻', toasted:true },
-  { id:11, name:'B.L.T.',          desc:'Triple decker of bacon, lettuce and tomatoes',                                                    price:16.5, icon:'🥓', toasted:true, veg:true },
-  { id:12, name:'Illers',          desc:'Hot link with BBQ sauce and cheddar cheese',                                                      price:16,   icon:'🌶️', toasted:true },
-  { id:13, name:'Cesar Chavez',    desc:'Chicken breast, bacon, avocado and jack cheese on sourdough roll',                                price:17,   icon:'🥑', toasted:true, veg:true },
-  { id:14, name:'Chef Curry',      desc:'Salami, pastrami and roast beef with cheddar cheese',                                             price:16.5, icon:'👨‍🍳' },
-  { id:15, name:'Maui',            desc:'Ham, marinara, pineapple, provolone on a sweet roll',                                             price:16.5, icon:'🌺', toasted:true },
-  { id:16, name:'Mercy Me',        desc:'Chicken breast, marinara sauce and provolone cheese',                                             price:16,   icon:'🍅', veg:true },
-  { id:17, name:'SFSU Gators',     desc:'Chicken breast with BBQ sauce and cheddar cheese',                                                price:16,   icon:'🐊', toasted:true, veg:true },
-  { id:18, name:'Slickster',       desc:'Turkey, choice of cheese and cranberry',                                                          price:16,   icon:'🦃', toasted:true },
-  { id:19, name:'Station 7',       desc:'Chicken breast marinated in honey mustard with pepper jack cheese and avocado on dutch crunch',   price:17,   icon:'🚒', toasted:true, veg:true },
-  { id:20, name:'Gaucho',          desc:"Chicken breast marinated in Frank's Red Hot buffalo wing sauce with ranch or bleu cheese on sourdough roll", price:16, icon:'🤠', toasted:true, veg:true },
-  { id:21, name:'USF Dons',        desc:'Chicken breast, teriyaki sauce and swiss',                                                        price:16,   icon:'⚔️', toasted:true, veg:true },
-  { id:22, name:'Boilermaker',     desc:'Chicken breast, ranch dressing, bacon and cheddar',                                               price:16.5, icon:'🔧', toasted:true, veg:true },
-  { id:23, name:'Go Green',        desc:'Chicken breast, pesto sauce and provolone',                                                       price:16,   icon:'🌿', toasted:true, veg:true },
-  { id:24, name:'Silly Philly',    desc:'Sliced roast beef, hot & sweet peppers and provolone (served as is)',                             price:16,   icon:'🧀' },
-  { id:25, name:'Sweet Pea',       desc:'Hot & sweet peppers, provolone & pepper jack. Add tofu +$1.50',                                   price:14.5, icon:'🌸', toasted:true },
-  { id:26, name:'Hipster',         desc:'Chicken breast, teriyaki sauce, peanut sauce, pepper jack, sprouts, red onions, tomato and mayo', price:16.5, icon:'🎸', toasted:true, veg:true },
-  { id:27, name:'Golden Gate',     desc:'Chicken breast, teriyaki sauce, pineapple and provolone',                                         price:16.5, icon:'🌉', toasted:true, veg:true },
-  { id:28, name:'Junior',          desc:'Grilled cheese with your choice of bread (served as is)',                                         price:8,    icon:'🧒', toasted:true },
-  { id:29, name:'PBJ',             desc:'Chunky peanut butter and strawberry jam toasted on your choice of bread',                         price:8,    icon:'🍓', toasted:true },
-  { id:30, name:'Ooey Gooey',      desc:'Chunky peanut butter, honey, nutella and marshmallows toasted on a sweet roll',                   price:9,    icon:'🍫', toasted:true },
-  { id:31, name:'Peak Special',    desc:'Pastrami, bacon, avocado with cream cheese',                                                      price:17,   icon:'⛰️' },
-  { id:32, name:'The Mission',     desc:'Turkey, bacon, avocado with pepper jack cheese and honey mustard',                                price:17,   icon:'🏛️' },
+  { id:1,  name:'Meatball',        desc:'Meatballs, marinara sauce and pepper jack cheese',                                               price:16.5, toasted:true },
+  { id:2,  name:'Vegi',            desc:'Choice of cheese, avocado, sprouts, cucumber',                                                   price:13.5, veg:true },
+  { id:3,  name:'Tony Soprano',    desc:'Salami, ham, mortadella, provolone cheese & Italian dressing',                                   price:16.5 },
+  { id:4,  name:'Tom Tom',         desc:'Turkey, bacon and swiss cheese',                                                                  price:16.5 },
+  { id:5,  name:'Diyana',          desc:'Pastrami, swiss and thousand island on rye',                                                      price:16,   toasted:true },
+  { id:6,  name:'House Combo',     desc:'Turkey, salami, ham and american cheese',                                                         price:16.5 },
+  { id:7,  name:'Dog House',       desc:'Pastrami, bacon and swiss cheese',                                                                price:16.5 },
+  { id:8,  name:'Porky Pig',       desc:'Ham, bacon and american cheese',                                                                  price:16.5 },
+  { id:9,  name:"Speedy's Special",desc:'Chicken breast marinated in honey mustard, BBQ with bacon & cheddar cheese',                    price:17 },
+  { id:10, name:'The Bear',        desc:'Roast beef with BBQ sauce and cheddar cheese',                                                    price:16,   toasted:true },
+  { id:11, name:'B.L.T.',          desc:'Triple decker of bacon, lettuce and tomatoes',                                                    price:16.5, toasted:true, veg:true },
+  { id:12, name:'Illers',          desc:'Hot link with BBQ sauce and cheddar cheese',                                                      price:16,   toasted:true },
+  { id:13, name:'Cesar Chavez',    desc:'Chicken breast, bacon, avocado and jack cheese on sourdough roll',                                price:17,   toasted:true, veg:true },
+  { id:14, name:'Chef Curry',      desc:'Salami, pastrami and roast beef with cheddar cheese',                                             price:16.5 },
+  { id:15, name:'Maui',            desc:'Ham, marinara, pineapple, provolone on a sweet roll',                                             price:16.5, toasted:true },
+  { id:16, name:'Mercy Me',        desc:'Chicken breast, marinara sauce and provolone cheese',                                             price:16,   veg:true },
+  { id:17, name:'SFSU Gators',     desc:'Chicken breast with BBQ sauce and cheddar cheese',                                                price:16,   toasted:true, veg:true },
+  { id:18, name:'Slickster',       desc:'Turkey, choice of cheese and cranberry',                                                          price:16,   toasted:true },
+  { id:19, name:'Station 7',       desc:'Chicken breast marinated in honey mustard with pepper jack cheese and avocado on dutch crunch',   price:17,   toasted:true, veg:true },
+  { id:20, name:'Gaucho',          desc:"Chicken breast marinated in Frank's Red Hot buffalo wing sauce with ranch or bleu cheese on sourdough roll", price:16, toasted:true, veg:true },
+  { id:21, name:'USF Dons',        desc:'Chicken breast, teriyaki sauce and swiss',                                                        price:16,   toasted:true, veg:true },
+  { id:22, name:'Boilermaker',     desc:'Chicken breast, ranch dressing, bacon and cheddar',                                               price:16.5, toasted:true, veg:true },
+  { id:23, name:'Go Green',        desc:'Chicken breast, pesto sauce and provolone',                                                       price:16,   toasted:true, veg:true },
+  { id:24, name:'Silly Philly',    desc:'Sliced roast beef, hot & sweet peppers and provolone (served as is)',                             price:16 },
+  { id:25, name:'Sweet Pea',       desc:'Hot & sweet peppers, provolone & pepper jack. Add tofu +$1.50',                                   price:14.5, toasted:true },
+  { id:26, name:'Hipster',         desc:'Chicken breast, teriyaki sauce, peanut sauce, pepper jack, sprouts, red onions, tomato and mayo', price:16.5, toasted:true, veg:true },
+  { id:27, name:'Golden Gate',     desc:'Chicken breast, teriyaki sauce, pineapple and provolone',                                         price:16.5, toasted:true, veg:true },
+  { id:28, name:'Junior',          desc:'Grilled cheese with your choice of bread (served as is)',                                         price:8,    toasted:true },
+  { id:29, name:'PBJ',             desc:'Chunky peanut butter and strawberry jam toasted on your choice of bread',                         price:8,    toasted:true },
+  { id:30, name:'Ooey Gooey',      desc:'Chunky peanut butter, honey, nutella and marshmallows toasted on a sweet roll',                   price:9,    toasted:true },
+  { id:31, name:'Peak Special',    desc:'Pastrami, bacon, avocado with cream cheese',                                                      price:17 },
+  { id:32, name:'The Mission',     desc:'Turkey, bacon, avocado with pepper jack cheese and honey mustard',                                price:17 },
 ]
 
 const SALADS = [
-  { name:'Green Salad',         icon:'🥗', desc:'Lettuce, tomatoes, red onion, pickles, peppers, cucumbers and sprouts with your choice of dressing',          price:13 },
-  { name:'Chef Salad',          icon:'👨‍🍳', desc:'Lettuce, pickle, peppers, tomatoes, red onions, sprouts, cucumbers + your choice of two meats & two cheeses', price:16.5 },
-  { name:'Tuna or Chicken Salad',icon:'🐟', desc:'Green salad plus our homemade tuna salad or fresh chicken salad on a bed of greens',                          price:16.5 },
-  { name:'Macaroni Salad',      icon:'🍝', desc:'½ pint of our classic macaroni salad',                                                                          price:4.5 },
-  { name:'Potato Salad',        icon:'🥔', desc:'½ pint of our homemade potato salad',                                                                           price:6.5 },
+  { name:'Green Salad',          desc:'Lettuce, tomatoes, red onion, pickles, peppers, cucumbers and sprouts with your choice of dressing',          price:13 },
+  { name:'Chef Salad',           desc:'Lettuce, pickle, peppers, tomatoes, red onions, sprouts, cucumbers + your choice of two meats & two cheeses', price:16.5 },
+  { name:'Tuna or Chicken Salad',desc:'Green salad plus our homemade tuna salad or fresh chicken salad on a bed of greens',                          price:16.5 },
+  { name:'Macaroni Salad',       desc:'½ pint of our classic macaroni salad',                                                                         price:4.5 },
+  { name:'Potato Salad',         desc:'½ pint of our homemade potato salad',                                                                          price:6.5 },
 ]
 
 // ─── COMPONENTS ─────────────────────────────────────────────────────────────
@@ -84,28 +83,47 @@ function Badge({ type }: { type: 'veg' | 'toasted' }) {
   )
 }
 
+function SandwichIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* top bun */}
+      <path d="M6 18 C6 8 58 8 58 18 L58 22 C58 22 6 22 6 22 Z" fill="#d4921a"/>
+      <path d="M6 18 C6 10 58 10 58 18" stroke="#b87a14" strokeWidth="1.5" fill="none"/>
+      {/* sesame seeds */}
+      <ellipse cx="22" cy="14" rx="2.5" ry="1.2" fill="#b87a14" transform="rotate(-15 22 14)"/>
+      <ellipse cx="34" cy="12" rx="2.5" ry="1.2" fill="#b87a14" transform="rotate(8 34 12)"/>
+      <ellipse cx="45" cy="15" rx="2" ry="1" fill="#b87a14" transform="rotate(-5 45 15)"/>
+      {/* lettuce */}
+      <path d="M4 22 Q16 19 28 21 Q40 19 60 22 L60 25 Q40 22 28 24 Q16 22 4 25 Z" fill="#5aaa30"/>
+      {/* tomato */}
+      <rect x="5" y="25" width="54" height="3.5" rx="1" fill="#e04545"/>
+      {/* cheese */}
+      <path d="M4 28.5 L60 28.5 L62 32 L2 32 Z" fill="#f0c040"/>
+      {/* meat */}
+      <rect x="5" y="32" width="54" height="4" rx="1.5" fill="#7a3820"/>
+      {/* bottom bun */}
+      <path d="M5 36 L59 36 L59 38 C59 40 5 40 5 38 Z" fill="#d4921a"/>
+    </svg>
+  )
+}
+
 function SandwichCard({ item }: { item: MenuItem }) {
   return (
     <div className="menu-card bg-white rounded-2xl p-5 border border-[#e8e0cc] cursor-default">
-      <div className="flex items-start gap-3">
-        <div className="w-12 h-12 bg-[#faf7ee] border border-[#e8e0cc] rounded-xl flex items-center justify-center text-2xl shrink-0">
-          {item.icon}
+      <div className="flex items-start justify-between gap-3 mb-2">
+        <div className="flex items-center gap-2">
+          <span className="w-7 h-7 rounded-lg bg-[#1e3a1e] text-[#f0c040] text-[11px] font-black flex items-center justify-center shrink-0">
+            {item.id}
+          </span>
+          <h3 className="font-black text-[#1e3a1e] text-base leading-tight">{item.name}</h3>
         </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2 mb-1">
-            <div>
-              <span className="text-[10px] font-black text-[#4a7c3f]">#{item.id} </span>
-              <span className="font-black text-[#1e3a1e] text-base leading-tight">{item.name}</span>
-            </div>
-            <span className="font-black text-xl text-[#1e3a1e] shrink-0">${item.price}</span>
-          </div>
-          <div className="flex gap-1 mb-1.5 flex-wrap">
-            {item.veg     && <Badge type="veg" />}
-            {item.toasted && <Badge type="toasted" />}
-          </div>
-          <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-        </div>
+        <span className="font-black text-xl text-[#1e3a1e] shrink-0">${item.price}</span>
       </div>
+      <div className="flex gap-1 mb-2 flex-wrap">
+        {item.veg     && <Badge type="veg" />}
+        {item.toasted && <Badge type="toasted" />}
+      </div>
+      <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
     </div>
   )
 }
@@ -253,9 +271,14 @@ export default function Home() {
         {activeTab === 'specialty' && (
           <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-              <div>
-                <h2 className="font-black text-3xl text-[#1e3a1e]">Specialty Sandwiches</h2>
-                <p className="text-slate-500 text-sm mt-1">All sandwiches come with your choice of condiments</p>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-10 shrink-0">
+                  <SandwichIcon className="w-full h-full" />
+                </div>
+                <div>
+                  <h2 className="font-black text-3xl text-[#1e3a1e]">Specialty Sandwiches</h2>
+                  <p className="text-slate-500 text-sm mt-1">All sandwiches come with your choice of condiments</p>
+                </div>
               </div>
               {/* Filter */}
               <div className="flex gap-2">
@@ -298,18 +321,11 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {SALADS.map((s, i) => (
                 <div key={s.name} className="menu-card bg-white rounded-2xl p-5 border border-[#e8e0cc] fade-up" style={{ animationDelay: `${i * 50}ms` }}>
-                  <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 bg-[#faf7ee] border border-[#e8e0cc] rounded-xl flex items-center justify-center text-2xl shrink-0">
-                      {s.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start gap-2 mb-1.5">
-                        <h3 className="font-black text-[#1e3a1e] text-base leading-tight">{s.name}</h3>
-                        <span className="font-black text-xl text-[#1e3a1e] shrink-0">${s.price}</span>
-                      </div>
-                      <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
-                    </div>
+                  <div className="flex justify-between items-start gap-3 mb-2">
+                    <h3 className="font-black text-[#1e3a1e] text-base leading-tight">{s.name}</h3>
+                    <span className="font-black text-xl text-[#1e3a1e] shrink-0">${s.price}</span>
                   </div>
+                  <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
