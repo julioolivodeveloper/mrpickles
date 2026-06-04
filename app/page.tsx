@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
-  MapPin, Map, Phone, Clock, ChevronDown, Star,
+  MapPin, Map, Phone, Mail, Clock, ChevronDown, Star,
   Leaf, Flame, Menu, X, ArrowRight, ExternalLink, ChefHat,
 } from 'lucide-react'
 
@@ -1030,6 +1030,10 @@ export default function Home() {
                   <div>
                     <p className="font-black text-white text-lg">Contact</p>
                     <a href="tel:+14158260143" className="text-[#f0c040] text-xl font-black hover:underline block mt-1">(415) 826-0143</a>
+                    <a href="mailto:leonsandwichshop@gmail.com" className="inline-flex items-center gap-1.5 text-white/60 hover:text-[#f0c040] text-sm mt-2 transition-colors">
+                      <Mail className="w-3.5 h-3.5" />
+                      leonsandwichshop@gmail.com
+                    </a>
                     <p className="text-white/50 text-xs mt-1">Call ahead for large orders</p>
                   </div>
                 </div>
