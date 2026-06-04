@@ -423,34 +423,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── DELIVERY APPS ── */}
-            <div className="flex flex-col gap-3">
-              <a href="https://www.doordash.com/search/store/mr%20pickles%20san%20francisco/"
-                target="_blank" rel="noopener noreferrer"
-                className="flex-1 flex items-center gap-3 bg-white border border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-md rounded-2xl px-5 py-4 transition-all group">
-                <div className="w-10 h-10 bg-[#ff3008] rounded-xl flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
-                </div>
-                <div>
-                  <p className="font-bold text-[#1e3a1e] text-sm">DoorDash</p>
-                  <p className="text-slate-400 text-xs">Delivery a domicilio</p>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#ff3008] ml-auto transition-colors" />
-              </a>
-
-              <a href="https://www.ubereats.com/search?q=mr+pickles+san+francisco"
-                target="_blank" rel="noopener noreferrer"
-                className="flex-1 flex items-center gap-3 bg-white border border-[#e8e0cc] hover:border-[#142328] hover:shadow-md rounded-2xl px-5 py-4 transition-all group">
-                <div className="w-10 h-10 bg-[#142328] rounded-xl flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.75 17.25H6v-1.5h5.25V7.5H6V6h6.75v11.25z"/></svg>
-                </div>
-                <div>
-                  <p className="font-bold text-[#1e3a1e] text-sm">Uber Eats</p>
-                  <p className="text-slate-400 text-xs">Delivery a domicilio</p>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#142328] ml-auto transition-colors" />
-              </a>
-            </div>
+            {/* ── DOORDASH ── */}
+            <a href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
+              target="_blank" rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
+              <div className="w-14 h-14 bg-[#ff3008] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
+              </div>
+              <div>
+                <p className="font-bold text-[#1e3a1e] text-base">DoorDash</p>
+                <p className="text-slate-400 text-xs mt-0.5">Orden y recoge</p>
+              </div>
+              <span className="flex items-center gap-1 text-[#ff3008] text-xs font-bold">
+                Ordenar ahora <ExternalLink className="w-3 h-3" />
+              </span>
+            </a>
 
           </div>
         </div>
