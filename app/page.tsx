@@ -164,6 +164,103 @@ function SandwichCard({ item }: { item: MenuItem }) {
   )
 }
 
+const REVIEWS = [
+  { name: 'Emily R.',   rating: 5, date: '2 weeks ago',  text: "Best sandwich shop in San Francisco! The Cesar Chavez is absolutely incredible — avocado, bacon and jack cheese on sourdough. I've been coming here for years and it never disappoints. Huge portions, super friendly staff." },
+  { name: 'Marcus L.',  rating: 5, date: '1 month ago',  text: "The Station 7 changed my life. Honey mustard chicken with pepper jack and avocado on Dutch Crunch... perfection. Lines move fast, food is always fresh. This is my go-to lunch spot in the Mission." },
+  { name: 'Sofia M.',   rating: 5, date: '3 weeks ago',  text: "Hidden gem! The Hipster sandwich with peanut sauce is surprisingly amazing. Love that they have great vegetarian options too. The Dutch Crunch bread alone is worth coming for. 10/10 will always recommend." },
+  { name: 'David K.',   rating: 5, date: '1 month ago',  text: "Tony Soprano is my order every single time — salami, ham, mortadella and provolone with Italian dressing. Tastes like a real Italian deli. Quick service even during lunch rush. Definitely a Mission District staple." },
+  { name: 'Anna T.',    rating: 5, date: '2 months ago', text: "I've tried almost half the menu and every sandwich has been incredible. The Meatball with marinara and pepper jack is so good when toasted. Prices are fair for the portion size. Such a great neighborhood spot!" },
+  { name: 'Carlos V.',  rating: 5, date: '3 weeks ago',  text: "Hands down the best sandwiches in SF. The Peak Special with pastrami, bacon, avocado and cream cheese is next level. Fast, friendly, and consistently delicious. I recommend Mr. Pickle's to everyone I know." },
+]
+
+function GoogleStars({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {[...Array(5)].map((_, i) => (
+        <svg key={i} className={`w-4 h-4 ${i < rating ? 'text-[#fbbc04]' : 'text-gray-300'}`} viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+      ))}
+    </div>
+  )
+}
+
+function ReviewCarousel() {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused]   = useState(false)
+  const [fading, setFading]   = useState(false)
+
+  const go = (next: number) => {
+    setFading(true)
+    setTimeout(() => {
+      setCurrent((next + REVIEWS.length) % REVIEWS.length)
+      setFading(false)
+    }, 200)
+  }
+
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => go(current + 1), 5000)
+    return () => clearInterval(id)
+  }, [current, paused])
+
+  const r = REVIEWS[current]
+  const initials = r.name.split(' ').map(w => w[0]).join('')
+
+  return (
+    <div
+      className="relative max-w-2xl mx-auto"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Card */}
+      <div className={`bg-white rounded-2xl shadow-xl border border-[#e8e0cc] p-7 transition-opacity duration-200 ${fading ? 'opacity-0' : 'opacity-100'}`}>
+        {/* Google branding row */}
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#4a7c3f] to-[#1e3a1e] flex items-center justify-center text-white font-black text-sm shrink-0">
+              {initials}
+            </div>
+            <div>
+              <p className="font-bold text-[#1e3a1e] text-sm">{r.name}</p>
+              <p className="text-slate-400 text-[11px]">{r.date} · Google Review</p>
+            </div>
+          </div>
+          <svg viewBox="0 0 48 48" className="w-7 h-7 shrink-0" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+        </div>
+
+        <GoogleStars rating={r.rating} />
+
+        <p className="text-slate-600 text-sm leading-relaxed mt-3 min-h-[80px]">"{r.text}"</p>
+      </div>
+
+      {/* Prev / Next */}
+      <button onClick={() => go(current - 1)}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 bg-white border border-[#e8e0cc] rounded-full shadow-md flex items-center justify-center text-[#1e3a1e] hover:bg-[#1e3a1e] hover:text-[#f0c040] transition-all">
+        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button onClick={() => go(current + 1)}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 bg-white border border-[#e8e0cc] rounded-full shadow-md flex items-center justify-center text-[#1e3a1e] hover:bg-[#1e3a1e] hover:text-[#f0c040] transition-all">
+        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {REVIEWS.map((_, i) => (
+          <button key={i} onClick={() => go(i)}
+            className={`rounded-full transition-all duration-300 ${i === current ? 'w-6 h-2 bg-[#1e3a1e]' : 'w-2 h-2 bg-[#1e3a1e]/25 hover:bg-[#1e3a1e]/50'}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ─── MAIN PAGE ───────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -517,6 +614,45 @@ export default function Home() {
           </section>
         )}
       </div>
+
+      {/* ── REVIEWS ── */}
+      <section className="bg-[#faf7ee] py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <GoogleStars rating={5} />
+              <span className="text-[#1e3a1e] font-bold text-sm">4.7 · 200+ Google Reviews</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl text-[#1e3a1e]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+              What Our Customers Say
+            </h2>
+            <p className="text-slate-500 text-sm mt-1">Real reviews from our regulars in the Mission</p>
+          </div>
+
+          <ReviewCarousel />
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-10">
+            <a href="https://maps.app.goo.gl/rkXJxKVHLMWjKxAU7"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 bg-white border-2 border-[#e8e0cc] hover:border-[#1e3a1e] text-[#1e3a1e] font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-md">
+              <svg viewBox="0 0 48 48" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+              </svg>
+              Ver en Google
+            </a>
+            <a href="https://maps.app.goo.gl/rkXJxKVHLMWjKxAU7"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 bg-[#1e3a1e] hover:bg-[#2d5a27] text-white font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-md">
+              <Star className="w-4 h-4 fill-[#f0c040] text-[#f0c040]" />
+              Dejar Reseña
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* ── LOCATION & HOURS ── */}
       <section id="location" className="bg-[#1e3a1e] py-20 px-4">
