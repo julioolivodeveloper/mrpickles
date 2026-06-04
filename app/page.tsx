@@ -110,25 +110,25 @@ const SANDWICHES: MenuItem[] = [
   { id:6,  name:'House Combo',     desc:'Turkey, salami, ham and american cheese',                                                         price:16.5,               image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/aa1212ea-e58c-4104-9728-9ec37d14eac4-retina-large-jpeg' },
   { id:7,  name:'Dog House',       desc:'Pastrami, bacon and swiss cheese',                                                                price:16.5,               image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/d50fd629-4c6b-45e4-ac5e-8325c0ba104b-retina-large.jpg' },
   { id:8,  name:'Porky Pig',       desc:'Ham, bacon and american cheese',                                                                  price:16.5,               image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/e556da5d-bd3b-4784-99a2-1a669d05bb76-121dea81-85b0-49b8-b838-08abd786974a.jpg' },
-  { id:9,  name:"Speedy's Special",desc:'Chicken breast marinated in honey mustard, BBQ with bacon & cheddar cheese',                    price:17 },
+  { id:9,  name:"Speedy's Special",desc:'Chicken breast marinated in honey mustard, BBQ with bacon & cheddar cheese',                    price:17, veg:true },
   { id:10, name:'The Bear',        desc:'Roast beef with BBQ sauce and cheddar cheese',                                                    price:16,   toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/e9b6baff-2187-4d0d-a0e7-a08edbd0374d-retina-large.jpg' },
   { id:11, name:'B.L.T.',          desc:'Triple decker of bacon, lettuce and tomatoes',                                                    price:16.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/8153178a-a27f-4c9d-b977-c58670af4bde-retina-large.jpg' },
   { id:12, name:'Illers',          desc:'Hot link with BBQ sauce and cheddar cheese',                                                      price:16,   toasted:true },
-  { id:13, name:'Cesar Chavez',    desc:'Chicken breast, bacon, avocado and jack cheese on sourdough roll',                                price:17,   toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/b43102a6-e0ad-441a-bdcd-636b4b198a70-retina-large.jpg' },
+  { id:13, name:'Cesar Chavez',    desc:'Chicken breast, bacon, avocado and jack cheese on sourdough roll',                                price:17,   toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/b43102a6-e0ad-441a-bdcd-636b4b198a70-retina-large.jpg' },
   { id:14, name:'Chef Curry',      desc:'Salami, pastrami and roast beef with cheddar cheese',                                             price:16.5 },
   { id:15, name:'Maui',            desc:'Ham, marinara, pineapple, provolone on a sweet roll',                                             price:16.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/22ab305f-1209-4efc-9142-dc9f3e1294d2-retina-large.jpg' },
   { id:16, name:'Mercy Me',        desc:'Chicken breast, marinara sauce and provolone cheese',                                             price:16,   veg:true,     image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/26bbc773-0b72-4be9-9645-d935a1b5abcb-4b13e504-d9ae-4e2a-a4d8-6d6f76ab888b.jpg' },
-  { id:17, name:'SFSU Gators',     desc:'Chicken breast with BBQ sauce and cheddar cheese',                                                price:16,   toasted:true },
+  { id:17, name:'SFSU Gators',     desc:'Chicken breast with BBQ sauce and cheddar cheese',                                                price:16,   toasted:true, veg:true },
   { id:18, name:'Slickster',       desc:'Turkey, choice of cheese and cranberry',                                                          price:16,   toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/8e928499-b076-48c2-af51-3dd657f96630-retina-large-jpeg' },
-  { id:19, name:'Station 7',       desc:'Chicken breast marinated in honey mustard with pepper jack cheese and avocado on dutch crunch',   price:17,   toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/yelp/e1f1bc28-e98f-4e8e-b9d3-2cedb6c8f5b8.jpg' },
-  { id:20, name:'Gaucho',          desc:"Chicken breast marinated in Frank's Red Hot buffalo wing sauce with ranch or bleu cheese on sourdough roll", price:16, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/yelp/fe180d55-673d-4219-8073-52045984edd4.jpg' },
-  { id:21, name:'USF Dons',        desc:'Chicken breast, teriyaki sauce and swiss',                                                        price:16,   toasted:true },
-  { id:22, name:'Boilermaker',     desc:'Chicken breast, ranch dressing, bacon and cheddar',                                               price:16.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/8e6aeed5-ecc8-4c05-8471-577cff7d5aa8-d2aacb79-06d7-4865-a62c-646d64c0cb1f.jpg' },
-  { id:23, name:'Go Green',        desc:'Chicken breast, pesto sauce and provolone',                                                       price:16,   toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/c441a354-e7db-4c79-a1bf-2fb60cfb442b.jpg' },
+  { id:19, name:'Station 7',       desc:'Chicken breast marinated in honey mustard with pepper jack cheese and avocado on dutch crunch',   price:17,   toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/yelp/e1f1bc28-e98f-4e8e-b9d3-2cedb6c8f5b8.jpg' },
+  { id:20, name:'Gaucho',          desc:"Chicken breast marinated in Frank's Red Hot buffalo wing sauce with ranch or bleu cheese on sourdough roll", price:16, toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/yelp/fe180d55-673d-4219-8073-52045984edd4.jpg' },
+  { id:21, name:'USF Dons',        desc:'Chicken breast, teriyaki sauce and swiss',                                                        price:16,   toasted:true, veg:true },
+  { id:22, name:'Boilermaker',     desc:'Chicken breast, ranch dressing, bacon and cheddar',                                               price:16.5, toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/8e6aeed5-ecc8-4c05-8471-577cff7d5aa8-d2aacb79-06d7-4865-a62c-646d64c0cb1f.jpg' },
+  { id:23, name:'Go Green',        desc:'Chicken breast, pesto sauce and provolone',                                                       price:16,   toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/c441a354-e7db-4c79-a1bf-2fb60cfb442b.jpg' },
   { id:24, name:'Silly Philly',    desc:'Sliced roast beef, hot & sweet peppers and provolone (served as is)',                             price:16,                 image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/0c66a67d-d358-4ac5-b9e5-750775c0d37f.jpg' },
   { id:25, name:'Sweet Pea',       desc:'Hot & sweet peppers, provolone & pepper jack. Add tofu +$1.50',                                   price:14.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/65689bae-ff2c-4862-9838-871d8af0fef4-3cc03529-c990-4599-8b1c-dda26c0b0896.jpg' },
-  { id:26, name:'Hipster',         desc:'Chicken breast, teriyaki sauce, peanut sauce, pepper jack, sprouts, red onions, tomato and mayo', price:16.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/a86deade-2c68-4b66-a5e9-fbef9e2cad61-retina-large.jpg' },
-  { id:27, name:'Golden Gate',     desc:'Chicken breast, teriyaki sauce, pineapple and provolone',                                         price:16.5, toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/d5c982fd-48c6-436d-b300-266ff9cd0c41-retina-large-jpeg' },
+  { id:26, name:'Hipster',         desc:'Chicken breast, teriyaki sauce, peanut sauce, pepper jack, sprouts, red onions, tomato and mayo', price:16.5, toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/a86deade-2c68-4b66-a5e9-fbef9e2cad61-retina-large.jpg' },
+  { id:27, name:'Golden Gate',     desc:'Chicken breast, teriyaki sauce, pineapple and provolone',                                         price:16.5, toasted:true, veg:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/d5c982fd-48c6-436d-b300-266ff9cd0c41-retina-large-jpeg' },
   { id:28, name:'Junior',          desc:'Grilled cheese with your choice of bread (served as is)',                                         price:8,    toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/c50c24d1-972b-49cb-a9ca-3aee26715c4b-fdae7cfc-3989-4410-bf37-550b8cf7e436.jpg' },
   { id:29, name:'PBJ',             desc:'Chunky peanut butter and strawberry jam toasted on your choice of bread',                         price:8,    toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/ugc/e4d43cae-c288-438a-be10-bf7e3a0776bf-4021d36a-6dbf-42e3-ba2b-675c38b3bc8b.jpg' },
   { id:30, name:'Ooey Gooey',      desc:'Chunky peanut butter, honey, nutella and marshmallows toasted on a sweet roll',                   price:9,    toasted:true, image:'https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=auto,quality=90/media/photos/80fb3d3e-99a9-4c14-bb41-1328dcbcd176-retina-large.jpg' },
@@ -739,6 +739,15 @@ export default function Home() {
               </div>
             </div>
 
+            {filter === 'veg' && (
+              <div className="mb-5 flex items-center gap-3 bg-green-50 border border-green-200 rounded-2xl px-5 py-3.5">
+                <Leaf className="w-4 h-4 text-green-600 shrink-0" />
+                <p className="text-green-800 text-xs font-bold uppercase tracking-wide">
+                  Chicken breast can be substituted with tofu on any of these sandwiches
+                </p>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((item, i) => (
                 <div key={item.id} className="fade-up" style={{ animationDelay: `${i * 30}ms` }}>
@@ -749,7 +758,7 @@ export default function Home() {
 
             <div className="mt-6 bg-[#1e3a1e]/5 border border-[#1e3a1e]/15 rounded-2xl p-4 text-xs text-slate-600 flex items-start gap-2">
               <span className="text-base">ℹ️</span>
-              <span>Chicken breast may be substituted with tofu. Meatball may be substituted with falafel. Bacon may be substituted with veggie bacon. <strong>If you have a food allergy, please notify us.</strong></span>
+              <span>Chicken breast may be substituted with tofu (+$0). <strong>If you have a food allergy, please notify us.</strong></span>
             </div>
           </section>
         )}
