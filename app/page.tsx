@@ -479,7 +479,8 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/home.jpg" alt="Delicious sandwiches" fill className="object-cover object-center" priority />
+          <Image src="/home.jpg" alt="Delicious sandwiches" fill className="hidden md:block object-cover object-center" priority />
+          <Image src="/mi.png" alt="Delicious sandwiches" fill className="md:hidden object-cover object-center" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a1e]/80 via-[#1e3a1e]/60 to-[#1e3a1e]/85" />
         </div>
 
