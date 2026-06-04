@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
-  MapPin, Phone, Clock, ChevronDown, Star,
+  MapPin, Map, Phone, Clock, ChevronDown, Star,
   Leaf, Flame, Menu, X, ArrowRight, ExternalLink, ChefHat,
 } from 'lucide-react'
 
@@ -486,8 +486,8 @@ export default function Home() {
             { href: '#menu',     emoji: '🥪', label: 'Menu'          },
             { href: '#salads',   emoji: '🥗', label: 'Salads'        },
             { href: '#build',    emoji: '👨‍🍳', label: 'Build Your Own'},
-            { href: '#location', emoji: '📍', label: 'Location'      },
-          ].map(({ href, emoji, label }, i) => (
+            { href: '#location', emoji: null,  label: 'Location',  icon: <Map className="w-4 h-4" /> },
+          ].map(({ href, emoji, label, icon }: { href: string; emoji: string | null; label: string; icon?: React.ReactNode }, i) => (
             <a
               key={href}
               href={href}
@@ -495,7 +495,10 @@ export default function Home() {
               className="drawer-item flex items-center gap-3 px-4 py-3.5 rounded-xl text-white/80 hover:text-white hover:bg-white/8 text-sm font-bold transition-colors"
               style={{ animationDelay: `${i * 60 + 80}ms` }}
             >
-              <span className="text-base">{emoji}</span>
+              {icon
+                ? <span className="w-5 flex items-center justify-center text-white/70">{icon}</span>
+                : <span className="text-base">{emoji}</span>
+              }
               {label}
               <ArrowRight className="w-3.5 h-3.5 ml-auto text-white/30" />
             </a>
