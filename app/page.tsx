@@ -802,6 +802,68 @@ export default function Home() {
         )}
       </div>
 
+      {/* ── CATERING ── */}
+      <section className="bg-[#1e3a1e] py-14 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+
+            {/* Text */}
+            <div className="flex-1 text-center lg:text-left">
+              <span className="inline-block bg-[#f0c040] text-[#1e3a1e] text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+                Catering
+              </span>
+              <h2 className="text-3xl sm:text-4xl text-white mb-3" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+                Feeding a Group?
+              </h2>
+              <p className="text-white/65 text-sm leading-relaxed max-w-lg mx-auto lg:mx-0">
+                We cater office lunches, team meetings, parties, and events of all sizes.
+                Fresh-made sandwiches, salads, and sides — ready when you need them.
+              </p>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6 mb-8">
+                {[
+                  { icon: '🥪', text: 'Full sandwich trays' },
+                  { icon: '🥗', text: 'Salad options' },
+                  { icon: '📦', text: 'Individual box meals' },
+                  { icon: '🏢', text: 'Office delivery available' },
+                ].map(item => (
+                  <div key={item.text} className="flex items-center gap-2 text-white/75 text-xs font-semibold">
+                    <span>{item.icon}</span>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="tel:+14158260143"
+                className="inline-flex items-center gap-2.5 bg-[#f0c040] hover:bg-[#d4a820] text-[#1e3a1e] font-black text-sm px-7 py-3.5 rounded-xl transition-colors shadow-lg"
+              >
+                <Phone className="w-4 h-4" />
+                Call to Plan Your Order
+              </a>
+            </div>
+
+            {/* Divider / accent */}
+            <div className="hidden lg:block w-px h-40 bg-white/10" />
+
+            {/* Quick info card */}
+            <div className="lg:w-72 w-full bg-white/8 border border-white/12 rounded-2xl p-6 text-center">
+              <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-3">Contact Us</p>
+              <a href="tel:+14158260143" className="text-[#f0c040] font-black text-2xl hover:underline block mb-1">
+                (415) 826-0143
+              </a>
+              <p className="text-white/50 text-xs mb-5">Mon–Fri · 9 AM – 7 PM</p>
+              <div className="border-t border-white/10 pt-4">
+                <p className="text-white/55 text-xs leading-relaxed">
+                  Please call at least <strong className="text-white/80">24 hours in advance</strong> for catering orders of 10 or more.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── REVIEWS ── */}
       <section className="bg-[#faf7ee] py-16 px-4">
         <div className="max-w-6xl mx-auto">
