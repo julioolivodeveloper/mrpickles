@@ -52,6 +52,11 @@ h1, h2, h3, .font-display { font-family: var(--font-oswald), sans-serif; letter-
 }
 .slide-up { animation: slideUp 0.35s ease forwards; }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* Tab underline animation */
 .tab-active { position: relative; }
 .tab-active::after {

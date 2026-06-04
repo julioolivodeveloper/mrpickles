@@ -26,6 +26,63 @@ function useCountUp(target: number, duration = 1400) {
 }
 
 
+// ─── TYPEWRITER ──────────────────────────────────────────────────────────────
+
+const HERO_WORDS = [
+  'Sandwich Shop',
+  'Specialty Sandwiches',
+  'Chicken Favorites',
+  'Italian Classics',
+  'Meatball Heroes',
+  'Fresh Salads',
+  'Build Your Own',
+  'Mission District Staple',
+]
+
+function TypewriterText({ words }: { words: string[] }) {
+  const [text,    setText]    = useState(words[0])
+  const [wordIdx, setWordIdx] = useState(0)
+  const [phase,   setPhase]   = useState<'typing' | 'pausing' | 'deleting'>('pausing')
+
+  useEffect(() => {
+    const word = words[wordIdx]
+
+    if (phase === 'typing') {
+      if (text === word) {
+        const t = setTimeout(() => setPhase('pausing'), 1800)
+        return () => clearTimeout(t)
+      }
+      const t = setTimeout(() => setText(word.slice(0, text.length + 1)), 75)
+      return () => clearTimeout(t)
+    }
+
+    if (phase === 'pausing') {
+      const t = setTimeout(() => setPhase('deleting'), 400)
+      return () => clearTimeout(t)
+    }
+
+    if (phase === 'deleting') {
+      if (text === '') {
+        setWordIdx(i => (i + 1) % words.length)
+        setPhase('typing')
+        return
+      }
+      const t = setTimeout(() => setText(t => t.slice(0, -1)), 40)
+      return () => clearTimeout(t)
+    }
+  }, [text, wordIdx, phase, words])
+
+  return (
+    <>
+      {text}
+      <span
+        className="inline-block align-middle ml-1 rounded-sm bg-[#f0c040]"
+        style={{ width: '3px', height: '0.85em', verticalAlign: 'middle', animation: 'blink 1s step-end infinite' }}
+      />
+    </>
+  )
+}
+
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
 const HOURS = [
@@ -432,7 +489,9 @@ export default function Home() {
           </div>
           <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-none mb-4" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
             Mr. Pickle's<br />
-            <span className="text-[#f0c040]">Sandwich Shop</span>
+            <span className="text-[#f0c040]">
+              <TypewriterText words={HERO_WORDS} />
+            </span>
           </h1>
           <p className="text-white/75 text-lg sm:text-xl max-w-xl mx-auto mb-8 leading-relaxed">
             Handcrafted sandwiches made fresh daily in the heart of San Francisco's Mission District.
