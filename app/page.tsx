@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
   MapPin, Phone, Clock, ChevronDown, Star,
-  Leaf, Flame, Menu, X, ArrowRight, ExternalLink,
+  Leaf, Flame, Menu, X, ArrowRight, ExternalLink, ChefHat,
 } from 'lucide-react'
 
 function useCountUp(target: number, duration = 1400) {
@@ -391,7 +391,7 @@ export default function Home() {
             {['#menu','#salads','#build','#location'].map((href, i) => (
               <a key={href} href={href} className="text-white/80 text-sm font-semibold py-2 border-b border-white/8"
                 onClick={() => setMobileOpen(false)}>
-                {['🥪 Menu','🥗 Salads','🛠️ Build Your Own','📍 Location'][i]}
+                {['🥪 Menu','🥗 Salads','👨‍🍳 Build Your Own','📍 Location'][i]}
               </a>
             ))}
             <a href="tel:+14158260143" className="flex items-center justify-center gap-2 bg-[#f0c040] text-[#1e3a1e] font-black text-sm px-4 py-3 rounded-xl mt-1">
@@ -561,16 +561,17 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="flex items-center overflow-x-auto scrollbar-none gap-1 py-1">
               {([
-                { key: 'specialty', label: '🥪 Specialty Sandwiches' },
-                { key: 'salads',    label: '🥗 Salads' },
-                { key: 'build',     label: '🛠️ Build Your Own' },
+                { key: 'specialty', label: '🥪 Specialty Sandwiches', icon: null },
+                { key: 'salads',    label: '🥗 Salads',               icon: null },
+                { key: 'build',     label: 'Build Your Own',           icon: <ChefHat className="w-4 h-4 shrink-0" /> },
               ] as const).map(tab => (
                 <button key={tab.key} onClick={() => { setActiveTab(tab.key); setFilter('all') }}
-                  className={`shrink-0 px-5 py-3.5 text-sm font-bold transition-all rounded-none border-b-3 ${
+                  className={`shrink-0 flex items-center gap-1.5 px-5 py-3.5 text-sm font-bold transition-all rounded-none border-b-[3px] ${
                     activeTab === tab.key
-                      ? 'text-[#f0c040] border-[#f0c040] border-b-[3px]'
-                      : 'text-white/60 hover:text-white border-transparent border-b-[3px]'
+                      ? 'text-[#f0c040] border-[#f0c040]'
+                      : 'text-white/60 hover:text-white border-transparent'
                   }`}>
+                  {tab.icon ?? null}
                   {tab.label}
                 </button>
               ))}
