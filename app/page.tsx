@@ -115,16 +115,17 @@ function SandwichIcon({ className }: { className?: string }) {
   )
 }
 
-function SandwichCard({ item }: { item: MenuItem }) {
+function SandwichCard({ item, onClick }: { item: MenuItem; onClick: () => void }) {
   return (
-    <div className="menu-card bg-white rounded-2xl border border-[#e8e0cc] cursor-default overflow-hidden">
+    <div
+      onClick={onClick}
+      className="menu-card bg-white rounded-2xl border border-[#e8e0cc] cursor-pointer overflow-hidden active:scale-95"
+    >
       <div className="flex items-stretch">
-        {/* icon column */}
         <div className="w-16 bg-[#1e3a1e] flex flex-col items-center justify-center gap-1 shrink-0 py-3">
           <SandwichIcon className="w-12 h-12 object-contain drop-shadow-lg" />
           <span className="text-[9px] font-black text-[#f0c040]/60 tracking-wide">#{item.id}</span>
         </div>
-        {/* content */}
         <div className="flex-1 p-4">
           <div className="flex items-start justify-between gap-2 mb-1.5">
             <h3 className="font-black text-[#1e3a1e] text-base leading-tight">{item.name}</h3>
@@ -135,6 +136,97 @@ function SandwichCard({ item }: { item: MenuItem }) {
             {item.toasted && <Badge type="toasted" />}
           </div>
           <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-4"
+      onClick={onClose}
+    >
+      {/* backdrop */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+      {/* panel */}
+      <div
+        className="relative bg-white rounded-3xl w-full max-w-sm shadow-2xl overflow-hidden"
+        style={{ animation: 'slideUp 0.3s ease' }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* header verde */}
+        <div className="bg-[#1e3a1e] px-6 pt-6 pb-8 relative">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 bg-white/15 hover:bg-white/25 rounded-full flex items-center justify-center text-white transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+          <div className="flex items-center gap-4">
+            <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 overflow-hidden">
+              <SandwichIcon className="w-16 h-16 object-contain drop-shadow-xl" />
+            </div>
+            <div>
+              <p className="text-[#f0c040] text-[11px] font-black tracking-widest uppercase mb-1">#{item.id}</p>
+              <h2 className="text-white text-xl leading-tight" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+                {item.name}
+              </h2>
+              <div className="flex gap-1 mt-1.5 flex-wrap">
+                {item.veg     && <Badge type="veg" />}
+                {item.toasted && <Badge type="toasted" />}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* body */}
+        <div className="px-6 py-5">
+          <p className="text-slate-500 text-sm leading-relaxed mb-4">{item.desc}</p>
+
+          <div className="flex items-center justify-between mb-5">
+            <span className="text-slate-400 text-sm">Precio</span>
+            <span className="text-[#1e3a1e] text-2xl" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+              ${item.price}
+            </span>
+          </div>
+
+          <p className="text-[#1e3a1e] text-xs font-black uppercase tracking-widest mb-3 text-center">
+            ¿Cómo quieres ordenar?
+          </p>
+
+          <div className="flex flex-col gap-2.5">
+            <a
+              href="tel:+14158260143"
+              className="flex items-center justify-center gap-3 bg-[#1e3a1e] hover:bg-[#2d5a27] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+            >
+              <Phone className="w-5 h-5" />
+              Llamar · (415) 826-0143
+            </a>
+            <a
+              href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 bg-[#ff3008] hover:bg-[#e02000] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/>
+              </svg>
+              Ordenar en DoorDash
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -245,6 +337,7 @@ export default function Home() {
   const [filter, setFilter]       = useState<'all' | 'veg' | 'toasted'>('all')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled]   = useState(false)
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -267,6 +360,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {selectedItem && <OrderModal item={selectedItem} onClose={() => setSelectedItem(null)} />}
 
       {/* ── NAVBAR ── */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1e3a1e]/97 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
@@ -436,7 +530,7 @@ export default function Home() {
           </div>
           <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
             {FAVORITES.map((item, i) => (
-              <div key={item.id} className="fav-card shrink-0 w-56 bg-white/5 border border-[#f0c040]/25 rounded-2xl overflow-hidden fade-up"
+              <div key={item.id} onClick={() => setSelectedItem(item)} className="fav-card shrink-0 w-56 bg-white/5 border border-[#f0c040]/25 rounded-2xl overflow-hidden fade-up cursor-pointer"
                 style={{ animationDelay: `${i * 80}ms` }}>
                 <div className="bg-[#f0c040]/10 border-b border-[#f0c040]/20 px-4 py-2 flex items-center gap-2">
                   <Star className="w-3 h-3 fill-[#f0c040] text-[#f0c040]" />
@@ -515,7 +609,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((item, i) => (
                 <div key={item.id} className="fade-up" style={{ animationDelay: `${i * 30}ms` }}>
-                  <SandwichCard item={item} />
+                  <SandwichCard item={item} onClick={() => setSelectedItem(item)} />
                 </div>
               ))}
             </div>
