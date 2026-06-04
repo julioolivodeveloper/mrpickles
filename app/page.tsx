@@ -804,7 +804,7 @@ export default function Home() {
 
       {/* ── CATERING ── */}
       <section className="relative py-14 px-4 overflow-hidden">
-        <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" />
+        <Image src="/catering.jpg" alt="" fill className="object-cover object-center" />
         <div className="absolute inset-0 bg-[#1e3a1e]/88" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-10">
