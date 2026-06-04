@@ -111,7 +111,7 @@ function Badge({ type }: { type: 'veg' | 'toasted' }) {
 
 function SandwichIcon({ className }: { className?: string }) {
   return (
-    <Image src="/sandwich-icon.png" alt="Sandwich" width={80} height={80} className={className} />
+    <Image src="/iconsandwich.png" alt="Sandwich" width={80} height={80} className={className} />
   )
 }
 
