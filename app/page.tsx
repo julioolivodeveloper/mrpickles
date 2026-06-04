@@ -593,7 +593,7 @@ export default function Home() {
 
       {/* ── FAN FAVORITES ── */}
       <div className="relative py-10 px-4 overflow-hidden">
-        <Image src="/fanfavorites.avif" alt="Fan Favorites background" fill className="object-cover object-center" />
+        <Image src="/fanfavorites.avif" alt="Fan Favorites background" fill className="object-cover object-[center_30%] md:object-[center_20%]" />
         <div className="absolute inset-0 bg-[#1e3a1e]/80" />
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
