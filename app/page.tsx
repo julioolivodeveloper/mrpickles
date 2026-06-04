@@ -443,9 +443,19 @@ export default function Home() {
           <Image src="/logo.png" alt="Mr. Pickle's" width={80} height={66} className="h-10 w-auto object-contain" priority />
 
           <div className="hidden md:flex items-center gap-6">
-            {(['#menu','#salads','#build','#location'] as const).map((href, i) => (
-              <a key={href} href={href} className="text-white/80 hover:text-[#f0c040] text-sm font-semibold transition-colors">
-                {['Menu','Salads','Build Your Own','Location'][i]}
+            {([
+              { href: '#menu',     label: 'Menu',          tab: 'specialty' as const },
+              { href: '#salads',   label: 'Salads',        tab: 'salads'    as const },
+              { href: '#build',    label: 'Build Your Own',tab: 'build'     as const },
+              { href: '#location', label: 'Location',      tab: null },
+            ]).map(({ href, label, tab }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => { if (tab) { setActiveTab(tab); scrollToMenu() } }}
+                className="text-white/80 hover:text-[#f0c040] text-sm font-semibold transition-colors"
+              >
+                {label}
               </a>
             ))}
           </div>
@@ -483,15 +493,15 @@ export default function Home() {
         {/* Nav links */}
         <nav className="flex-1 px-5 py-6 flex flex-col gap-1 overflow-y-auto">
           {[
-            { href: '#menu',     emoji: '🥪', label: 'Menu'          },
-            { href: '#salads',   emoji: '🥗', label: 'Salads'        },
-            { href: '#build',    emoji: '👨‍🍳', label: 'Build Your Own'},
-            { href: '#location', emoji: null,  label: 'Location',  icon: <Map className="w-4 h-4" /> },
-          ].map(({ href, emoji, label, icon }: { href: string; emoji: string | null; label: string; icon?: React.ReactNode }, i) => (
+            { href: '#menu',     emoji: '🥪', label: 'Menu',          tab: 'specialty' as const },
+            { href: '#salads',   emoji: '🥗', label: 'Salads',        tab: 'salads'    as const },
+            { href: '#build',    emoji: '👨‍🍳', label: 'Build Your Own',tab: 'build'     as const },
+            { href: '#location', emoji: null,  label: 'Location',     tab: null, icon: <Map className="w-4 h-4" /> },
+          ].map(({ href, emoji, label, tab, icon }: { href: string; emoji: string | null; label: string; tab: 'specialty' | 'salads' | 'build' | null; icon?: React.ReactNode }, i) => (
             <a
               key={href}
               href={href}
-              onClick={() => setMobileOpen(false)}
+              onClick={() => { setMobileOpen(false); if (tab) { setActiveTab(tab); scrollToMenu() } }}
               className="drawer-item flex items-center gap-3 px-4 py-3.5 rounded-xl text-white/80 hover:text-white hover:bg-white/8 text-sm font-bold transition-colors"
               style={{ animationDelay: `${i * 60 + 80}ms` }}
             >
