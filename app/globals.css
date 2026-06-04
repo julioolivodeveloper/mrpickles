@@ -57,6 +57,12 @@ h1, h2, h3, .font-display { font-family: var(--font-oswald), sans-serif; letter-
   50%       { opacity: 0; }
 }
 
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.drawer-item { animation: slideInRight 0.3s ease forwards; opacity: 0; }
+
 /* Tab underline animation */
 .tab-active { position: relative; }
 .tab-active::after {

@@ -456,25 +456,64 @@ export default function Home() {
             </a>
           </div>
 
-          <button className="md:hidden text-white p-1" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <button className="md:hidden text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors" onClick={() => setMobileOpen(true)}>
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+      </nav>
+
+      {/* ── MOBILE DRAWER ── */}
+      {/* Backdrop */}
+      <div
+        className={`md:hidden fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* Panel */}
+      <div className={`md:hidden fixed top-0 right-0 z-[60] h-full w-72 bg-[#1e3a1e] shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+          <Image src="/logo.png" alt="Mr. Pickle's" width={70} height={58} className="h-9 w-auto object-contain" />
+          <button onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        {mobileOpen && (
-          <div className="md:hidden bg-[#1e3a1e] border-t border-white/10 px-4 py-4 flex flex-col gap-3">
-            {['#menu','#salads','#build','#location'].map((href, i) => (
-              <a key={href} href={href} className="text-white/80 text-sm font-semibold py-2 border-b border-white/8"
-                onClick={() => setMobileOpen(false)}>
-                {['🥪 Menu','🥗 Salads','👨‍🍳 Build Your Own','📍 Location'][i]}
-              </a>
-            ))}
-            <a href="tel:+14158260143" className="flex items-center justify-center gap-2 bg-[#f0c040] text-[#1e3a1e] font-black text-sm px-4 py-3 rounded-xl mt-1">
-              <Phone className="w-4 h-4" /> Call to Order
+        {/* Nav links */}
+        <nav className="flex-1 px-5 py-6 flex flex-col gap-1 overflow-y-auto">
+          {[
+            { href: '#menu',     emoji: '🥪', label: 'Menu'          },
+            { href: '#salads',   emoji: '🥗', label: 'Salads'        },
+            { href: '#build',    emoji: '👨‍🍳', label: 'Build Your Own'},
+            { href: '#location', emoji: '📍', label: 'Location'      },
+          ].map(({ href, emoji, label }, i) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setMobileOpen(false)}
+              className="drawer-item flex items-center gap-3 px-4 py-3.5 rounded-xl text-white/80 hover:text-white hover:bg-white/8 text-sm font-bold transition-colors"
+              style={{ animationDelay: `${i * 60 + 80}ms` }}
+            >
+              <span className="text-base">{emoji}</span>
+              {label}
+              <ArrowRight className="w-3.5 h-3.5 ml-auto text-white/30" />
             </a>
-          </div>
-        )}
-      </nav>
+          ))}
+        </nav>
+
+        {/* Footer CTA */}
+        <div className="px-5 pb-8 pt-2 border-t border-white/10">
+          <a
+            href="tel:+14158260143"
+            onClick={() => setMobileOpen(false)}
+            className="drawer-item flex items-center justify-center gap-2.5 w-full bg-[#f0c040] hover:bg-[#d4a820] text-[#1e3a1e] font-black text-sm px-4 py-4 rounded-xl transition-colors shadow-lg"
+            style={{ animationDelay: '320ms' }}
+          >
+            <Phone className="w-4 h-4" /> Call to Order
+          </a>
+        </div>
+      </div>
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
