@@ -111,30 +111,7 @@ function Badge({ type }: { type: 'veg' | 'toasted' }) {
 
 function SandwichIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* top bun dome */}
-      <path d="M7 22 C7 10 41 10 41 22 L41 26 L7 26 Z" fill="#e8a020"/>
-      <path d="M7 22 C7 11 41 11 41 22" stroke="#c8881a" strokeWidth="1.2" fill="none"/>
-      {/* sesame seeds */}
-      <ellipse cx="17" cy="17" rx="2" ry="1" fill="#c8881a" transform="rotate(-20 17 17)"/>
-      <ellipse cx="26" cy="15" rx="2" ry="1" fill="#c8881a" transform="rotate(10 26 15)"/>
-      <ellipse cx="34" cy="18" rx="1.6" ry="0.9" fill="#c8881a" transform="rotate(-5 34 18)"/>
-      {/* lettuce ruffle */}
-      <path d="M5 26 Q10 23 15 25 Q20 23 25 25 Q30 23 35 25 Q40 23 43 26 L43 29 Q38 26 33 28 Q28 26 23 28 Q18 26 13 28 Q8 26 5 29 Z" fill="#4caf24"/>
-      {/* tomato slice */}
-      <rect x="6" y="29" width="36" height="3" rx="1.5" fill="#e03030"/>
-      <line x1="14" y1="29" x2="14" y2="32" stroke="#c02020" strokeWidth="0.8"/>
-      <line x1="24" y1="29" x2="24" y2="32" stroke="#c02020" strokeWidth="0.8"/>
-      <line x1="34" y1="29" x2="34" y2="32" stroke="#c02020" strokeWidth="0.8"/>
-      {/* cheese (melting corner) */}
-      <path d="M5 32 L43 32 L45 35.5 L3 35.5 Z" fill="#f0c040"/>
-      {/* meat patty */}
-      <rect x="6" y="35.5" width="36" height="4.5" rx="2" fill="#6b2e10"/>
-      <path d="M6 37 Q14 36 24 37.5 Q34 36 42 37" stroke="#7d3815" strokeWidth="0.8" fill="none"/>
-      {/* bottom bun */}
-      <path d="M5 40 L43 40 L43 43 Q24 46 5 43 Z" fill="#e8a020"/>
-      <path d="M5 40 L43 40" stroke="#c8881a" strokeWidth="0.8"/>
-    </svg>
+    <Image src="/sandwich-icon.png" alt="Sandwich" width={80} height={80} className={className} />
   )
 }
 
@@ -143,8 +120,8 @@ function SandwichCard({ item }: { item: MenuItem }) {
     <div className="menu-card bg-white rounded-2xl border border-[#e8e0cc] cursor-default overflow-hidden">
       <div className="flex items-stretch">
         {/* icon column */}
-        <div className="w-14 bg-[#1e3a1e] flex flex-col items-center justify-center gap-1 shrink-0 py-4">
-          <SandwichIcon className="w-9 h-9" />
+        <div className="w-16 bg-[#1e3a1e] flex flex-col items-center justify-center gap-1 shrink-0 py-3">
+          <SandwichIcon className="w-12 h-12 object-contain drop-shadow-lg" />
           <span className="text-[9px] font-black text-[#f0c040]/60 tracking-wide">#{item.id}</span>
         </div>
         {/* content */}
@@ -512,8 +489,8 @@ export default function Home() {
           <section key="specialty" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 slide-up">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-[#1e3a1e] rounded-2xl flex items-center justify-center shrink-0 shadow-md">
-                  <SandwichIcon className="w-9 h-9" />
+                <div className="w-16 h-16 bg-[#1e3a1e] rounded-2xl flex items-center justify-center shrink-0 shadow-md overflow-hidden">
+                  <SandwichIcon className="w-14 h-14 object-contain drop-shadow-lg" />
                 </div>
                 <div>
                   <h2 className="text-3xl text-[#1e3a1e]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>Specialty Sandwiches</h2>
