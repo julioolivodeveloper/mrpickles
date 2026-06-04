@@ -3,9 +3,27 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
-  MapPin, Phone, Clock, ChevronDown,
+  MapPin, Phone, Clock, ChevronDown, Star,
   Leaf, Flame, Menu, X, ArrowRight, ExternalLink,
 } from 'lucide-react'
+
+function useCountUp(target: number, duration = 1400) {
+  const [count, setCount] = useState(0)
+  const started = useRef(false)
+  useEffect(() => {
+    if (started.current) return
+    started.current = true
+    const startTime = Date.now()
+    const tick = () => {
+      const p = Math.min((Date.now() - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - p, 3)
+      setCount(Math.round(eased * target))
+      if (p < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [target, duration])
+  return count
+}
 
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
@@ -67,6 +85,14 @@ const SALADS = [
   { name:'Macaroni Salad',       desc:'½ pint of our classic macaroni salad',                                                                         price:4.5 },
   { name:'Potato Salad',         desc:'½ pint of our homemade potato salad',                                                                          price:6.5 },
 ]
+
+const FAVORITES = [
+  { id: 9,  label: 'Most Ordered' },
+  { id: 13, label: 'Staff Pick'   },
+  { id: 19, label: 'Fan Favorite' },
+  { id: 26, label: 'Customer Love'},
+  { id: 32, label: 'Must Try'     },
+].map(f => ({ ...SANDWICHES.find(s => s.id === f.id)!, label: f.label }))
 
 // ─── COMPONENTS ─────────────────────────────────────────────────────────────
 
@@ -153,6 +179,10 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const sandwichCount = useCountUp(32)
+  const yearsCount    = useCountUp(30)
+  const saladCount    = useCountUp(6)
+
   const filtered = SANDWICHES.filter(s => {
     if (filter === 'veg')     return s.veg
     if (filter === 'toasted') return s.toasted
@@ -214,7 +244,7 @@ export default function Home() {
           <div className="float mb-6">
             <Image src="/logo.png" alt="Mr. Pickle's" width={140} height={116} className="mx-auto h-28 w-auto drop-shadow-2xl" priority />
           </div>
-          <h1 className="text-white font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-none mb-4">
+          <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-none mb-4" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
             Mr. Pickle's<br />
             <span className="text-[#f0c040]">Sandwich Shop</span>
           </h1>
@@ -233,15 +263,17 @@ export default function Home() {
           </div>
 
           {/* Quick stats */}
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
+          <div className="flex flex-wrap justify-center gap-8 mt-12">
             {[
-              { n: '32', label: 'Specialty Sandwiches' },
-              { n: '6',  label: 'Fresh Salads' },
-              { n: '∞',  label: 'Build Your Own' },
+              { n: sandwichCount, label: 'Specialty Sandwiches', suffix: '+' },
+              { n: saladCount,    label: 'Fresh Salads',          suffix: '' },
+              { n: yearsCount,    label: 'Years in the Mission',  suffix: '+' },
             ].map(s => (
               <div key={s.label} className="text-center">
-                <p className="font-black text-3xl text-[#f0c040]">{s.n}</p>
-                <p className="text-white/60 text-xs font-medium">{s.label}</p>
+                <p className="text-4xl text-[#f0c040]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+                  {s.n}{s.suffix}
+                </p>
+                <p className="text-white/60 text-xs font-medium mt-0.5">{s.label}</p>
               </div>
             ))}
           </div>
@@ -251,6 +283,71 @@ export default function Home() {
           <ChevronDown className="w-8 h-8" />
         </button>
       </section>
+
+      {/* ── DELIVERY BANNER ── */}
+      <div className="bg-[#f0f9ea] border-b border-[#cde8b8] py-5 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p className="font-bold text-[#1e3a1e] text-lg" style={{ fontFamily: 'var(--font-oswald)' }}>
+              Order for Delivery
+            </p>
+            <p className="text-slate-500 text-sm">Get your sandwich delivered fresh to your door</p>
+          </div>
+          <div className="flex gap-3 shrink-0">
+            <a href="https://www.doordash.com/search/store/mr%20pickles%20san%20francisco/"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-[#ff3008] hover:bg-[#e02000] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
+              DoorDash
+            </a>
+            <a href="https://www.ubereats.com/search?q=mr+pickles+san+francisco"
+              target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-[#142328] hover:bg-black text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.75 17.25H6v-1.5h5.25V7.5H6V6h6.75v11.25z"/></svg>
+              Uber Eats
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAN FAVORITES ── */}
+      <div className="bg-[#1e3a1e] py-10 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-[#f0c040] text-[#f0c040]" />
+              ))}
+            </div>
+            <h2 className="text-white text-2xl" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+              Fan Favorites
+            </h2>
+            <span className="text-white/35 text-sm hidden sm:block">— most ordered by our customers</span>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+            {FAVORITES.map((item, i) => (
+              <div key={item.id} className="fav-card shrink-0 w-56 bg-white/5 border border-[#f0c040]/25 rounded-2xl overflow-hidden fade-up"
+                style={{ animationDelay: `${i * 80}ms` }}>
+                <div className="bg-[#f0c040]/10 border-b border-[#f0c040]/20 px-4 py-2 flex items-center gap-2">
+                  <Star className="w-3 h-3 fill-[#f0c040] text-[#f0c040]" />
+                  <span className="text-[#f0c040] text-[10px] font-black tracking-widest uppercase">{item.label}</span>
+                </div>
+                <div className="p-4">
+                  <div className="flex justify-between items-start mb-1.5">
+                    <h3 className="text-white font-bold text-sm leading-tight">{item.name}</h3>
+                    <span className="text-[#f0c040] font-black text-base shrink-0 ml-2">${item.price}</span>
+                  </div>
+                  <div className="flex gap-1 mb-2 flex-wrap">
+                    {item.veg     && <Badge type="veg" />}
+                    {item.toasted && <Badge type="toasted" />}
+                  </div>
+                  <p className="text-white/50 text-[11px] leading-relaxed line-clamp-2">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── MENU ── */}
       <div ref={menuRef} id="menu" className="bg-[#faf7ee]">
@@ -279,14 +376,14 @@ export default function Home() {
 
         {/* ── SPECIALTY SANDWICHES ── */}
         {activeTab === 'specialty' && (
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+          <section key="specialty" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 slide-up">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 bg-[#1e3a1e] rounded-2xl flex items-center justify-center shrink-0 shadow-md">
                   <SandwichIcon className="w-9 h-9" />
                 </div>
                 <div>
-                  <h2 className="font-black text-3xl text-[#1e3a1e]">Specialty Sandwiches</h2>
+                  <h2 className="text-3xl text-[#1e3a1e]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>Specialty Sandwiches</h2>
                   <p className="text-slate-500 text-sm mt-1">All sandwiches come with your choice of condiments</p>
                 </div>
               </div>
@@ -322,9 +419,9 @@ export default function Home() {
 
         {/* ── SALADS ── */}
         {activeTab === 'salads' && (
-          <section id="salads" className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+          <section key="salads" id="salads" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 slide-up">
             <div className="mb-8">
-              <h2 className="font-black text-3xl text-[#1e3a1e]">Fresh Salads</h2>
+              <h2 className="text-3xl text-[#1e3a1e]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>Fresh Salads</h2>
               <p className="text-slate-500 text-sm mt-1">Made fresh daily with crisp, quality ingredients</p>
             </div>
 
@@ -354,10 +451,10 @@ export default function Home() {
 
         {/* ── BUILD YOUR OWN ── */}
         {activeTab === 'build' && (
-          <section id="build" className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+          <section key="build" id="build" className="max-w-5xl mx-auto px-4 sm:px-6 py-10 slide-up">
             <div className="mb-8 flex items-end gap-4">
               <div>
-                <h2 className="font-black text-3xl text-[#1e3a1e]">Build Your Own</h2>
+                <h2 className="text-3xl text-[#1e3a1e]" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>Build Your Own</h2>
                 <p className="text-slate-500 text-sm mt-1">Start with a base and customize to your taste</p>
               </div>
               <div className="bg-[#f0c040] text-[#1e3a1e] font-black text-2xl px-5 py-2 rounded-2xl mb-0.5">$12</div>
@@ -425,7 +522,7 @@ export default function Home() {
       <section id="location" className="bg-[#1e3a1e] py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-black text-3xl sm:text-4xl text-white mb-2">Find Us</h2>
+            <h2 className="text-3xl sm:text-4xl text-white mb-2" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>Find Us</h2>
             <p className="text-white/60">Come visit us in the heart of the Mission District</p>
           </div>
 
