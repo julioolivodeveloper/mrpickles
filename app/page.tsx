@@ -381,28 +381,77 @@ export default function Home() {
         </button>
       </section>
 
-      {/* ── DELIVERY BANNER ── */}
-      <div className="bg-[#f0f9ea] border-b border-[#cde8b8] py-5 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="font-bold text-[#1e3a1e] text-lg" style={{ fontFamily: 'var(--font-oswald)' }}>
-              Order for Delivery
-            </p>
-            <p className="text-slate-500 text-sm">Get your sandwich delivered fresh to your door</p>
-          </div>
-          <div className="flex gap-3 shrink-0">
-            <a href="https://www.doordash.com/search/store/mr%20pickles%20san%20francisco/"
-              target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#ff3008] hover:bg-[#e02000] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
-              DoorDash
-            </a>
-            <a href="https://www.ubereats.com/search?q=mr+pickles+san+francisco"
-              target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#142328] hover:bg-black text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:scale-105 shadow-md">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.75 17.25H6v-1.5h5.25V7.5H6V6h6.75v11.25z"/></svg>
-              Uber Eats
-            </a>
+      {/* ── ORDER SECTION ── */}
+      <div className="bg-[#faf7ee] border-b border-[#e8e0cc] py-10 px-4">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center text-[#1e3a1e] text-2xl mb-6" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+            Order Your Way
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+            {/* ── PICKUP (PRINCIPAL) ── */}
+            <div className="sm:col-span-2 relative bg-[#1e3a1e] rounded-2xl p-6 overflow-hidden shadow-xl">
+              {/* decorative background circles */}
+              <div className="absolute -top-8 -right-8 w-40 h-40 bg-[#f0c040]/10 rounded-full pointer-events-none" />
+              <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-[#f0c040]/8 rounded-full pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="bg-[#f0c040] text-[#1e3a1e] text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest uppercase">
+                    Recomendado
+                  </span>
+                </div>
+                <h3 className="text-white text-2xl mt-2" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
+                  Pickup en tienda
+                </h3>
+                <p className="text-white/60 text-sm mt-1 mb-5">
+                  Listo en ~10 minutos · Sin cargos adicionales · Siempre fresco
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a href="tel:+14158260143"
+                    className="flex items-center justify-center gap-2.5 bg-[#f0c040] hover:bg-[#d4a820] text-[#1e3a1e] font-black text-base px-6 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg">
+                    <Phone className="w-5 h-5" />
+                    (415) 826-0143
+                  </a>
+                  <a href="#location"
+                    className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all">
+                    <MapPin className="w-4 h-4 text-[#f0c040]" />
+                    3380 20th St, SF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* ── DELIVERY APPS ── */}
+            <div className="flex flex-col gap-3">
+              <a href="https://www.doordash.com/search/store/mr%20pickles%20san%20francisco/"
+                target="_blank" rel="noopener noreferrer"
+                className="flex-1 flex items-center gap-3 bg-white border border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-md rounded-2xl px-5 py-4 transition-all group">
+                <div className="w-10 h-10 bg-[#ff3008] rounded-xl flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1e3a1e] text-sm">DoorDash</p>
+                  <p className="text-slate-400 text-xs">Delivery a domicilio</p>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#ff3008] ml-auto transition-colors" />
+              </a>
+
+              <a href="https://www.ubereats.com/search?q=mr+pickles+san+francisco"
+                target="_blank" rel="noopener noreferrer"
+                className="flex-1 flex items-center gap-3 bg-white border border-[#e8e0cc] hover:border-[#142328] hover:shadow-md rounded-2xl px-5 py-4 transition-all group">
+                <div className="w-10 h-10 bg-[#142328] rounded-xl flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.75 17.25H6v-1.5h5.25V7.5H6V6h6.75v11.25z"/></svg>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1e3a1e] text-sm">Uber Eats</p>
+                  <p className="text-slate-400 text-xs">Delivery a domicilio</p>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#142328] ml-auto transition-colors" />
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
