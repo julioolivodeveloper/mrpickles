@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Mr. Pickle's Sandwich Shop · San Francisco",
   description: "Fresh, handcrafted sandwiches in the Mission District. 32 specialty sandwiches, salads, and build-your-own options.",
+  other: {
+    'facebook-domain-verification': 'pemmcfkj8iled2vl6d8m02kcpi9poa',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
