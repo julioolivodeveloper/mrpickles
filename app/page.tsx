@@ -285,6 +285,7 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
           </p>
           <a
             href="tel:+14158260143"
+            onClick={() => (window as any).fbq?.('track', 'Contact', { content_name: 'phone_call' })}
             className="flex items-center justify-center gap-3 bg-[#1e3a1e] hover:bg-[#2d5a27] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg mb-4"
           >
             <Phone className="w-5 h-5" />
@@ -300,6 +301,7 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
               href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'DoorDash', content_category: 'delivery' })}
               className="flex items-center justify-center gap-3 bg-[#ff3008] hover:bg-[#e02000] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -311,6 +313,7 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
               href="https://www.trycaviar.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnHgsl_1p6iqI-I7nqN-6N9gF5kaJ_hr6qUx4AAgMPxiDD5ce0WZrRV7cP-9stVBvseJ1ZjOSYyLPJlse4NaSWvS19vIEg==&utm_campaign=gpa"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Caviar', content_category: 'delivery' })}
               className="flex items-center justify-center gap-3 bg-[#2c2c2c] hover:bg-[#3d3d3d] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <span className="font-black text-xl" style={{ fontFamily: 'Georgia, serif', letterSpacing: '-1px' }}>C</span>
@@ -320,6 +323,7 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
               href="https://www.ubereats.com/store/mr-pickles-sandwich-shop/EoSSbtvYTfmJrSiSS4uNww?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFCex9XbU062tA7AjKFg4rBoiJ2GizIevU5qxywSaUqECgU0MVx6Cae8aMpSDBC0Hl6PTbeFZ8zeViP3hlazplQuXc2rg%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'UberEats', content_category: 'delivery' })}
               className="flex items-center justify-center gap-3 bg-[#142328] hover:bg-[#1e3540] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <svg className="w-5 h-5" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -634,6 +638,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a href="tel:+14158260143"
+                    onClick={() => (window as any).fbq?.('track', 'Contact', { content_name: 'phone_call' })}
                     className="flex items-center justify-center gap-2.5 bg-[#f0c040] hover:bg-[#d4a820] text-[#1e3a1e] font-black text-base px-6 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg">
                     <Phone className="w-5 h-5" />
                     (415) 826-0143
@@ -653,6 +658,7 @@ export default function Home() {
               {/* DoorDash */}
               <a href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
                 target="_blank" rel="noopener noreferrer"
+                onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'DoorDash', content_category: 'delivery' })}
                 className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
                 <div className="w-14 h-14 bg-[#ff3008] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                   <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
@@ -669,6 +675,7 @@ export default function Home() {
               {/* Caviar */}
               <a href="https://www.trycaviar.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnHgsl_1p6iqI-I7nqN-6N9gF5kaJ_hr6qUx4AAgMPxiDD5ce0WZrRV7cP-9stVBvseJ1ZjOSYyLPJlse4NaSWvS19vIEg==&utm_campaign=gpa"
                 target="_blank" rel="noopener noreferrer"
+                onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'Caviar', content_category: 'delivery' })}
                 className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#2c2c2c] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
                 <div className="w-14 h-14 bg-[#2c2c2c] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                   <span className="text-white font-black text-2xl" style={{ fontFamily: 'Georgia, serif', letterSpacing: '-1px' }}>C</span>
@@ -685,6 +692,7 @@ export default function Home() {
               {/* Uber Eats */}
               <a href="https://www.ubereats.com/store/mr-pickles-sandwich-shop/EoSSbtvYTfmJrSiSS4uNww?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFCex9XbU062tA7AjKFg4rBoiJ2GizIevU5qxywSaUqECgU0MVx6Cae8aMpSDBC0Hl6PTbeFZ8zeViP3hlazplQuXc2rg%3D%3D"
                 target="_blank" rel="noopener noreferrer"
+                onClick={() => (window as any).fbq?.('track', 'InitiateCheckout', { content_name: 'UberEats', content_category: 'delivery' })}
                 className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#06C167] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
                 <div className="w-14 h-14 bg-[#142328] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                   <svg className="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
