@@ -278,48 +278,53 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
             </span>
           </div>
 
-          <p className="text-[#1e3a1e] text-xs font-black uppercase tracking-widest mb-3 text-center">
-            ¿Cómo quieres ordenar?
+          {/* Pickup */}
+          <p className="text-[#1e3a1e] text-[10px] font-black uppercase tracking-widest mb-2">
+            🏪 Pickup
           </p>
+          <a
+            href="tel:+14158260143"
+            className="flex items-center justify-center gap-3 bg-[#1e3a1e] hover:bg-[#2d5a27] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg mb-4"
+          >
+            <Phone className="w-5 h-5" />
+            Llamar · (415) 826-0143
+          </a>
 
+          {/* Delivery */}
+          <p className="text-[#1e3a1e] text-[10px] font-black uppercase tracking-widest mb-2">
+            🛵 Delivery
+          </p>
           <div className="flex flex-col gap-2.5">
-            <a
-              href="tel:+14158260143"
-              className="flex items-center justify-center gap-3 bg-[#1e3a1e] hover:bg-[#2d5a27] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
-            >
-              <Phone className="w-5 h-5" />
-              Llamar · (415) 826-0143
-            </a>
             <a
               href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-[#ff3008] hover:bg-[#e02000] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+              className="flex items-center justify-center gap-3 bg-[#ff3008] hover:bg-[#e02000] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/>
               </svg>
-              Ordenar en DoorDash
+              DoorDash
             </a>
             <a
               href="https://www.trycaviar.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnHgsl_1p6iqI-I7nqN-6N9gF5kaJ_hr6qUx4AAgMPxiDD5ce0WZrRV7cP-9stVBvseJ1ZjOSYyLPJlse4NaSWvS19vIEg==&utm_campaign=gpa"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-[#2c2c2c] hover:bg-[#3d3d3d] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+              className="flex items-center justify-center gap-3 bg-[#2c2c2c] hover:bg-[#3d3d3d] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <span className="font-black text-xl" style={{ fontFamily: 'Georgia, serif', letterSpacing: '-1px' }}>C</span>
-              Ordenar en Caviar
+              Caviar
             </a>
             <a
               href="https://www.ubereats.com/store/mr-pickles-sandwich-shop/EoSSbtvYTfmJrSiSS4uNww?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFCex9XbU062tA7AjKFg4rBoiJ2GizIevU5qxywSaUqECgU0MVx6Cae8aMpSDBC0Hl6PTbeFZ8zeViP3hlazplQuXc2rg%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-[#142328] hover:bg-[#1e3540] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+              className="flex items-center justify-center gap-3 bg-[#142328] hover:bg-[#1e3540] text-white font-black text-base py-3.5 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
             >
               <svg className="w-5 h-5" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6zm0 4c5.523 0 10 4.477 10 10 0 2.29-.772 4.4-2.063 6.082L13.918 12.063A9.958 9.958 0 0120 10zm0 20c-5.523 0-10-4.477-10-10 0-2.29.772-4.4 2.063-6.082l13.919 14.019A9.958 9.958 0 0120 30z" fill="#06C167"/>
               </svg>
-              Ordenar en Uber Eats
+              Uber Eats
             </a>
           </div>
         </div>
