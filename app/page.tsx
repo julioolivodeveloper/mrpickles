@@ -29,6 +29,7 @@ function useCountUp(target: number, duration = 1400) {
 // ─── TYPEWRITER ──────────────────────────────────────────────────────────────
 
 const HERO_WORDS = [
+  'San Francisco',
   'Sandwich Shop',
   'Specialty Sandwiches',
   'Chicken Favorites',
