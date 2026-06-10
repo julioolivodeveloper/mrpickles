@@ -301,6 +301,26 @@ function OrderModal({ item, onClose }: { item: MenuItem; onClose: () => void }) 
               </svg>
               Ordenar en DoorDash
             </a>
+            <a
+              href="https://www.trycaviar.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnHgsl_1p6iqI-I7nqN-6N9gF5kaJ_hr6qUx4AAgMPxiDD5ce0WZrRV7cP-9stVBvseJ1ZjOSYyLPJlse4NaSWvS19vIEg==&utm_campaign=gpa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 bg-[#2c2c2c] hover:bg-[#3d3d3d] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+            >
+              <span className="font-black text-xl" style={{ fontFamily: 'Georgia, serif', letterSpacing: '-1px' }}>C</span>
+              Ordenar en Caviar
+            </a>
+            <a
+              href="https://www.ubereats.com/store/mr-pickles-sandwich-shop/EoSSbtvYTfmJrSiSS4uNww?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFCex9XbU062tA7AjKFg4rBoiJ2GizIevU5qxywSaUqECgU0MVx6Cae8aMpSDBC0Hl6PTbeFZ8zeViP3hlazplQuXc2rg%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 bg-[#142328] hover:bg-[#1e3540] text-white font-black text-base py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6zm0 4c5.523 0 10 4.477 10 10 0 2.29-.772 4.4-2.063 6.082L13.918 12.063A9.958 9.958 0 0120 10zm0 20c-5.523 0-10-4.477-10-10 0-2.29.772-4.4 2.063-6.082l13.919 14.019A9.958 9.958 0 0120 30z" fill="#06C167"/>
+              </svg>
+              Ordenar en Uber Eats
+            </a>
           </div>
         </div>
       </div>
@@ -588,14 +608,12 @@ export default function Home() {
           <p className="text-center text-[#1e3a1e] text-2xl mb-6" style={{ fontFamily: 'var(--font-oswald)', fontWeight: 700 }}>
             Order Your Way
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="flex flex-col gap-4">
 
             {/* ── PICKUP (PRINCIPAL) ── */}
-            <div className="sm:col-span-2 relative bg-[#1e3a1e] rounded-2xl p-6 overflow-hidden shadow-xl">
-              {/* decorative background circles */}
+            <div className="relative bg-[#1e3a1e] rounded-2xl p-6 overflow-hidden shadow-xl">
               <div className="absolute -top-8 -right-8 w-40 h-40 bg-[#f0c040]/10 rounded-full pointer-events-none" />
               <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-[#f0c040]/8 rounded-full pointer-events-none" />
-
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="bg-[#f0c040] text-[#1e3a1e] text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest uppercase">
@@ -608,7 +626,6 @@ export default function Home() {
                 <p className="text-white/60 text-sm mt-1 mb-5">
                   Listo en ~10 minutos · Sin cargos adicionales · Siempre fresco
                 </p>
-
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a href="tel:+14158260143"
                     className="flex items-center justify-center gap-2.5 bg-[#f0c040] hover:bg-[#d4a820] text-[#1e3a1e] font-black text-base px-6 py-3.5 rounded-xl transition-all hover:scale-105 shadow-lg">
@@ -624,22 +641,60 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── DOORDASH ── */}
-            <a href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
-              target="_blank" rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
-              <div className="w-14 h-14 bg-[#ff3008] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
-              </div>
-              <div>
-                <p className="font-bold text-[#1e3a1e] text-base">DoorDash</p>
-                <p className="text-slate-400 text-xs mt-0.5">Orden y recoge</p>
-              </div>
-              <span className="flex items-center gap-1 text-[#ff3008] text-xs font-bold">
-                Ordenar ahora <ExternalLink className="w-3 h-3" />
-              </span>
-            </a>
+            {/* ── DELIVERY APPS ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
+              {/* DoorDash */}
+              <a href="https://www.doordash.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnGFvmNK--XDALdCDSfC53hcBKawaQG-jflGqESNlxsvqvY3771-IFJmGNzaukl5PClDztQ4aUYhcRbSNRbpP04IYrkHvw==&utm_campaign=gpa"
+                target="_blank" rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#ff3008] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
+                <div className="w-14 h-14 bg-[#ff3008] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                  <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5S4.5 16.14 4.5 12 7.86 4.5 12 4.5z"/></svg>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1e3a1e] text-base">DoorDash</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Delivery o pickup</p>
+                </div>
+                <span className="flex items-center gap-1 text-[#ff3008] text-xs font-bold">
+                  Ordenar ahora <ExternalLink className="w-3 h-3" />
+                </span>
+              </a>
+
+              {/* Caviar */}
+              <a href="https://www.trycaviar.com/store/mr-pickles-sandwich-(san-francisco)-san-francisco-621241/846982/?pickup=true&rwg_token=AFd1xnHgsl_1p6iqI-I7nqN-6N9gF5kaJ_hr6qUx4AAgMPxiDD5ce0WZrRV7cP-9stVBvseJ1ZjOSYyLPJlse4NaSWvS19vIEg==&utm_campaign=gpa"
+                target="_blank" rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#2c2c2c] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
+                <div className="w-14 h-14 bg-[#2c2c2c] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                  <span className="text-white font-black text-2xl" style={{ fontFamily: 'Georgia, serif', letterSpacing: '-1px' }}>C</span>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1e3a1e] text-base">Caviar</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Delivery o pickup</p>
+                </div>
+                <span className="flex items-center gap-1 text-[#2c2c2c] text-xs font-bold">
+                  Ordenar ahora <ExternalLink className="w-3 h-3" />
+                </span>
+              </a>
+
+              {/* Uber Eats */}
+              <a href="https://www.ubereats.com/store/mr-pickles-sandwich-shop/EoSSbtvYTfmJrSiSS4uNww?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFCex9XbU062tA7AjKFg4rBoiJ2GizIevU5qxywSaUqECgU0MVx6Cae8aMpSDBC0Hl6PTbeFZ8zeViP3hlazplQuXc2rg%3D%3D"
+                target="_blank" rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center gap-3 bg-white border-2 border-[#e8e0cc] hover:border-[#06C167] hover:shadow-lg rounded-2xl px-5 py-6 transition-all group text-center">
+                <div className="w-14 h-14 bg-[#142328] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6C12.268 6 6 12.268 6 20s6.268 14 14 14 14-6.268 14-14S27.732 6 20 6zm0 4c5.523 0 10 4.477 10 10 0 2.29-.772 4.4-2.063 6.082L13.918 12.063A9.958 9.958 0 0120 10zm0 20c-5.523 0-10-4.477-10-10 0-2.29.772-4.4 2.063-6.082l13.919 14.019A9.958 9.958 0 0120 30z" fill="#06C167"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1e3a1e] text-base">Uber Eats</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Delivery o pickup</p>
+                </div>
+                <span className="flex items-center gap-1 text-[#06C167] text-xs font-bold">
+                  Ordenar ahora <ExternalLink className="w-3 h-3" />
+                </span>
+              </a>
+
+            </div>
           </div>
         </div>
       </div>
